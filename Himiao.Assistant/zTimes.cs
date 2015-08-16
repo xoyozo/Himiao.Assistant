@@ -56,7 +56,7 @@ namespace Himiao.Assistant
       m = m.Date.AddHours(m.Hour).AddMinutes(m.Minute);
 
       // 先找需要最后一次提醒的秒杀
-      coming_times_get_list item = zTimes.Times.FirstOrDefault(c => c.lastTipShown != true && c.lastTip >= m && c.lastTip < m.AddMinutes(1));
+      coming_times_get_list item = Times.FirstOrDefault(c => c.lastTipShown != true && c.lastTip >= m && c.lastTip < m.AddMinutes(1));
       if (item != null)
       {
         item.lastTipShown = true;
@@ -64,7 +64,7 @@ namespace Himiao.Assistant
       }
 
       // 再找首次提醒的秒杀
-      item = zTimes.Times.FirstOrDefault(c => c.firstTipShown != true && c.firstTip >= m && c.firstTip < m.AddMinutes(1));
+      item = Times.FirstOrDefault(c => c.firstTipShown != true && c.firstTip >= m && c.firstTip < m.AddMinutes(1));
       if (item != null)
       {
         item.firstTipShown = true;
@@ -82,7 +82,7 @@ namespace Himiao.Assistant
       {
         DateTime m = zTime.Now;
         m = m.Date.AddHours(m.Hour).AddMinutes(m.Minute);
-        return zTimes.Times.Any(c => c.t >= m && c.t < m.AddMinutes(1));
+        return Times.Any(c => c.t >= m && c.t < m.AddMinutes(1));
       }
     }
     /// <summary>
@@ -92,7 +92,7 @@ namespace Himiao.Assistant
     {
       get
       {
-        return zTimes.Times.Where(c => c.t >= zTime.Now).Select(c => (DateTime?)c.t).Min();
+        return Times.Where(c => c.t >= zTime.Now).Select(c => (DateTime?)c.t).Min();
       }
     }
   }
