@@ -17,6 +17,8 @@ namespace Himiao.Assistant
     public Form1()
     {
       InitializeComponent();
+
+      Location = new Point(0, (Screen.PrimaryScreen.Bounds.Height - this.Height) / 2);
     }
 
     /// <summary>
@@ -49,7 +51,7 @@ namespace Himiao.Assistant
     /// </summary>
     private void timer_1s_Tick(object sender, EventArgs e)
     {
-      // 如果本分钟有秒杀，为了不影响用户抢购，第 10 秒之后提醒下一秒杀时间
+      // 气球提醒（若本分钟有秒杀，为了不影响用户抢购，第 10 秒之后提醒）
       if (zTimes.HaveOnInMinute ? zTime.Now.Second > 10 : true)
       {
         KeyValuePair<DateTime, int>? item = zTimes.GetTipTimeInMinute();
@@ -63,6 +65,13 @@ namespace Himiao.Assistant
         }
       }
 
+      // 秒杀结束自动隐藏主窗口
+      if (zTimes.HaveOnInMinute && zTime.Now.Second == 15)
+      {
+        Hide();
+      }
+
+      // 更改系统托盘的 tooltip
       if (zTime.Now.Second == 0)
       {
         DateTime? next = zTimes.ComingTime;
@@ -147,7 +156,10 @@ namespace Himiao.Assistant
         if (!notificationTipShown)
         {
           notificationTipShown = true;
-          notifyIcon1.ShowBalloonTip(5000, "秒小秘会在下次秒杀之前通知您哦~", "您可以在系统托盘找到秒小秘，双击图标直达嗨秒网。", ToolTipIcon.None);
+          // notifyIcon1.ShowBalloonTip(5000, "秒小秘会在下次秒杀之前通知您哦~", "您可以在系统托盘找到秒小秘，双击图标直达嗨秒网。", ToolTipIcon.None);
+          notifyIcon1.BalloonTipTitle = "秒小秘会在下次秒杀之前通知您哦~";
+          notifyIcon1.BalloonTipText = "您可以在系统托盘找到秒小秘，双击图标直达嗨秒网。";
+          notifyIcon1.ShowBalloonTip(5000);
         }
         e.Cancel = true;
         xRender(false);

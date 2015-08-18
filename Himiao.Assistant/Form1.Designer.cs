@@ -36,12 +36,12 @@
       this.timer_setTime = new System.Windows.Forms.Timer(this.components);
       this.timer_Application_Start = new System.Windows.Forms.Timer(this.components);
       this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-      this.timer_1s = new System.Windows.Forms.Timer(this.components);
-      this.timer_coming_times_get = new System.Windows.Forms.Timer(this.components);
-      this.label2 = new System.Windows.Forms.Label();
       this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.mi_main = new System.Windows.Forms.ToolStripMenuItem();
       this.mi_exit = new System.Windows.Forms.ToolStripMenuItem();
+      this.timer_1s = new System.Windows.Forms.Timer(this.components);
+      this.timer_coming_times_get = new System.Windows.Forms.Timer(this.components);
+      this.label2 = new System.Windows.Forms.Label();
       this.contextMenuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -89,27 +89,6 @@
       this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
       this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
       // 
-      // timer_1s
-      // 
-      this.timer_1s.Enabled = true;
-      this.timer_1s.Interval = 1000;
-      this.timer_1s.Tick += new System.EventHandler(this.timer_1s_Tick);
-      // 
-      // timer_coming_times_get
-      // 
-      this.timer_coming_times_get.Enabled = true;
-      this.timer_coming_times_get.Interval = 600000;
-      this.timer_coming_times_get.Tick += new System.EventHandler(this.timer_coming_times_get_Tick);
-      // 
-      // label2
-      // 
-      this.label2.AutoSize = true;
-      this.label2.Location = new System.Drawing.Point(23, 159);
-      this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(41, 12);
-      this.label2.TabIndex = 3;
-      this.label2.Text = "不多开";
-      // 
       // contextMenuStrip1
       // 
       this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -133,6 +112,27 @@
       this.mi_exit.Text = "退出";
       this.mi_exit.Click += new System.EventHandler(this.mi_exit_Click);
       // 
+      // timer_1s
+      // 
+      this.timer_1s.Enabled = true;
+      this.timer_1s.Interval = 1000;
+      this.timer_1s.Tick += new System.EventHandler(this.timer_1s_Tick);
+      // 
+      // timer_coming_times_get
+      // 
+      this.timer_coming_times_get.Enabled = true;
+      this.timer_coming_times_get.Interval = 600000;
+      this.timer_coming_times_get.Tick += new System.EventHandler(this.timer_coming_times_get_Tick);
+      // 
+      // label2
+      // 
+      this.label2.AutoSize = true;
+      this.label2.Location = new System.Drawing.Point(23, 159);
+      this.label2.Name = "label2";
+      this.label2.Size = new System.Drawing.Size(41, 12);
+      this.label2.TabIndex = 3;
+      this.label2.Text = "不多开";
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -143,9 +143,10 @@
       this.Controls.Add(this.label1);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+      this.Location = new System.Drawing.Point(0, 200);
       this.MaximizeBox = false;
       this.Name = "Form1";
-      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+      this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
       this.Text = "秒小秘";
       this.TopMost = true;
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);

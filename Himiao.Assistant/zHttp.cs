@@ -116,7 +116,7 @@ namespace Himiao.Assistant
     }
 
     /// <summary>
-    /// 拼接 GET/POST 参数，返回示例：a=1&b=2&c=3
+    /// 拼接 GET/POST 参数，返回示例：a=1&amp;b=2&amp;c=3
     /// <param name="parameters">GET / POST 参数（允许 Dictionary&lt;string, object&gt; 字典、已拼接的字符串、类 或 null）</param>
     /// </summary>
     public static string joinParameters(object parameters)
